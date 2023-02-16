@@ -255,13 +255,8 @@ const MainForm = ({
                 </Alert>
               )}
             </div>
-          </div>
-          <div
-
-            className="representatives-container"
- 
-          >
             <h2>Senators</h2>
+          <div className="representatives-container">
             {senator
               .filter((item) => item.govt_type === "Federal Senators")
               .map((mps, index) => (
@@ -278,6 +273,7 @@ const MainForm = ({
                   />
                 </div>
               ))}
+          </div>
           </div>
         </div>
       </div>
