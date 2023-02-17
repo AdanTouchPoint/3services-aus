@@ -57,7 +57,7 @@ const List = ({mps, dataUser,  setEmailData,  setShowFindForm, setShowEmailForm,
                             href={`https://twitter.com/intent/tweet?text=${tweetText}`}
                             target={"blank"}
                         >
-                            Enviar tweet
+                            Tweet
                         </Button> :
                         <p className='list-notweeter-text' >No hay Twitter</p>
                     }
@@ -72,7 +72,7 @@ const List = ({mps, dataUser,  setEmailData,  setShowFindForm, setShowEmailForm,
                                 target={"blank"}
                                 onClick={click}
                             >
-                                Enviar email
+                                Email
                             </Button> :
                             <p className='list-notweeter-text'>No hay Email</p>
                     }
@@ -87,7 +87,7 @@ const List = ({mps, dataUser,  setEmailData,  setShowFindForm, setShowEmailForm,
                                 href={`tel:+55${mps.phone}`}
                                 target={"blank"}
                             >
-                                Llamada
+                                Call
                             </Button> :
                             <p className='list-notweeter-text'>No hay telefono</p>
                     }

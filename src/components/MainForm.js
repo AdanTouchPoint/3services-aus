@@ -77,17 +77,25 @@ const MainForm = ({
       `https://payload-demo-tpm.herokuapp.com/find-mp/?clientId=${clientId}&postcode=${dataUser.postcode}`,
       requestOptions
     )
-      .then((response) => response.json())
+      .then((response) =>
+        response.status === 200 ? (
+          response.json()
+        ) : (
+          <Alert variant="danger">
+            No se han encontrado representantes con el código postal que nos ha
+            proveído
+          </Alert>
+        )
+      )
       .then(async (result) => {
         setSenator(result.statesFilter);
-        let query = result.data
-        let fill = await query.map(el => {
-        
-          return el[0]
-        })
-       setMp(fill)
-       setShowLoadSpin(false);
-       setShowList(false);
+        let query = result.data;
+        let fill = await query.map((el) => {
+          return el[0];
+        });
+        setMp(fill);
+        setShowLoadSpin(false);
+        setShowList(false);
       })
       .catch((error) => console.log("error", error));
     //const response = await axios.post(`https://sendemail-service.herokuapp.com/sendtwit`, {dataUser})
@@ -118,8 +126,8 @@ const MainForm = ({
     //console.log(mainData)
   }, []);
   //console.log(dataUser)
- // console.log(mp, "log de estado mp");
- // console.log(senator, "log de estado senator");
+  // console.log(mp, "log de estado mp");
+  // console.log(senator, "log de estado senator");
   //console.log(mainData, 'mainData fuera antes del return')
   if (!mainData) return "loading datos";
   if (!mp) return "loading datos";
@@ -256,24 +264,30 @@ const MainForm = ({
               )}
             </div>
             <h2>Senators</h2>
-          <div className="representatives-container">
-            {senator
-              .filter((item) => item.govt_type === "Federal Senators")
-              .map((mps, index) => (
-                <div>
-                  <List
-                    setShowEmailForm={setShowEmailForm}
-                    setShowFindForm={setShowFindForm}
-                    showFindForm={showFindForm}
-                    emailData={emailData}
-                    setEmailData={setEmailData}
-                    dataUser={dataUser}
-                    mps={mps}
-                    key={index}
-                  />
-                </div>
-              ))}
-          </div>
+            <div className="representatives-container">
+              {typeof senator === "undefined" ? (
+                <Alert variant="danger">
+                  No se han encontrado representantes con el código postal que
+                  nos ha proveído
+                </Alert>
+              ) : (
+                senator
+                  .filter((item) => item.govt_type === "Federal Senators")
+                  .map((mps, index) => (
+                    <List
+                      setShowEmailForm={setShowEmailForm}
+                      setShowFindForm={setShowFindForm}
+                      showFindForm={showFindForm}
+                      emailData={emailData}
+                      setEmailData={setEmailData}
+                      dataUser={dataUser}
+                      mps={mps}
+                      clientId={clientId}
+                      key={index}
+                    />
+                  ))
+              )}
+            </div>
           </div>
         </div>
       </div>
