@@ -38,7 +38,12 @@ const List = ({mps, dataUser,  setEmailData,  setShowFindForm, setShowEmailForm,
             <div className={'list-content-location'}>
                 <div>
                     <h3 className='capitalize-style'> {mps.name} </h3>
-                    <p>Código Postal: {mps.labelpostcode}, Estado: {mps.state ? mps.state : ' ---'}, Fracción:{mps.party ? mps.party: ' ---'}</p>
+                    {
+                        mps.govt_type === "Federal Senators" ? 
+                        <p>State: {mps.state ? mps.state: ' ---'}, Postal Code: {mps.labelpostcode}, City: {mps.city ? mps.city : ' ---'}</p> :
+                        <p>For: {mps.electorates}, City: {mps.city ? mps.city : ' ---'}, State: {mps.state ? mps.state: ' ---'}</p>
+                    }
+                    
                 </div>
             </div>
             <div className={'buttons'}>
