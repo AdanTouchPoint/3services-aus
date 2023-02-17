@@ -113,14 +113,14 @@ const EmailForm = ({
     <div className={"emailContainer"} hidden={showEmailForm}>
       {error ? (
         <Alert variant={"danger"}>
-          Todos lo campos son necesarios, por favor introduzca los faltantes.
+          All fields are required!
         </Alert>
       ) : null}
       <Form onSubmit={send} noValidate validated={validated}>
         <div className={"formEmail"}>
           <Col>
             <Form.Group controlId="name">
-              <Form.Label>*Primer nombre y apellido</Form.Label>
+              <Form.Label>*Name and Last Name</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Name"
@@ -144,7 +144,7 @@ const EmailForm = ({
           </Col>
         </div>
         <Col>
-          <Form.Label>PARA: INFORMACIÓN DEL REPRESENTANTE</Form.Label>
+          <Form.Label>To: MP's Information</Form.Label>
         </Col>
         <div className={"formEmail"}>
           <Col>
@@ -183,7 +183,7 @@ const EmailForm = ({
         <div className="input-subject">
           <Col>
             <Form.Group>
-              <Form.Label>ASUNTO:</Form.Label>
+              <Form.Label>Subject Line:</Form.Label>
               <Form.Control
                 onChange={handleChange}
                 as="input"
@@ -221,10 +221,10 @@ const EmailForm = ({
           variant={"dark"}
           onClick={send}
         >
-          Enviar
+          Send
         </Button>
         <Button className={"button-email-form"} variant={"dark"} onClick={back}>
-          Regresar
+          Go Back
         </Button>
       </div>
     </div>
