@@ -59,7 +59,7 @@ const List = ({mps, dataUser,  setEmailData,  setShowFindForm, setShowEmailForm,
                         >
                             Tweet
                         </Button> :
-                        <p className='list-notweeter-text' >No hay Twitter</p>
+                        <p className='list-notweeter-text' >No Twitter</p>
                     }
                 </div>
                 <div >
@@ -74,7 +74,7 @@ const List = ({mps, dataUser,  setEmailData,  setShowFindForm, setShowEmailForm,
                             >
                                 Email
                             </Button> :
-                            <p className='list-notweeter-text'>No hay Email</p>
+                            <p className='list-notweeter-text'>No Email</p>
                     }
                 </div>
                 <div >
@@ -89,7 +89,7 @@ const List = ({mps, dataUser,  setEmailData,  setShowFindForm, setShowEmailForm,
                             >
                                 Call
                             </Button> :
-                            <p className='list-notweeter-text'>No hay telefono</p>
+                            <p className='list-notweeter-text'>"No Phone Number</p>
                     }
                 </div>
             </div>
