@@ -31,14 +31,14 @@ const ThankYou = ({showThankYou, setShowFindForm, setShowThankYou, clientId}) =>
         <div hidden={showThankYou} className={'container typ-container'}>
             <form onSubmit={click}>
                 <div className='typ-content'>
-                    <h3>{typData.data?.docs[0] ? typData.data?.docs[0].thankYouMessage : 'Por favor introduce un mensaje de gracias en el dashboard'}</h3>
-                    <h5>{typData.data?.docs[0] ? typData.data?.docs[0].secondThankYouMessage : 'Por favor introduce rellena este campo en el dashboard' }</h5>
+                    <h3>{typData.data?.docs[0] ? typData.data?.docs[0].thankYouMessage : 'Please type a thank you message on the dashboard'}</h3>
+                    <h5>{typData.data?.docs[0] ? typData.data?.docs[0].secondThankYouMessage : 'Please type something on the dashboard' }</h5>
                     <Button
                         type={'submit'}
                         onClick={click}
                         variant={'dark'}
                         className="capitalize-style">
-                        {typData.data?.docs[0] ? typData.data?.docs[0].repeatButtonTyp : 'Por favor rellena este campo en el dashboard'}
+                        {typData.data?.docs[0] ? typData.data?.docs[0].repeatButtonTyp : 'Please type something on the dashboard'}
                     </Button>
                 </div>
             </form>

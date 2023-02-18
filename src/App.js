@@ -36,9 +36,9 @@ function App() {
       dataUser.text =
         txt.length > 0
           ? txt.join(" ").replace(/#/g, " ")
-          : "Introduzca un texto sugerido";
+          : "Please type a suggested text";
       dataUser.subject =
-        sub.length > 0 ? sub : "Por favor introduzca un asunto del correos";
+        sub.length > 0 ? sub : "Please type the subject line";
       //console.log();
       //console.log(txt);
       return txt;

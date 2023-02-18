@@ -82,8 +82,7 @@ const MainForm = ({
           response.json()
         ) : (
           <Alert variant="danger">
-            No se han encontrado representantes con el código postal que nos ha
-            proveído
+           No representatives found with the zip code that has us Supplied
           </Alert>
         )
       )
@@ -258,8 +257,7 @@ const MainForm = ({
                 ))
               ) : (
                 <Alert variant="danger">
-                  No se han encontrado representantes con el código postal que
-                  nos ha proveído
+              No representatives found with the zip code that has us Supplied
                 </Alert>
               )}
             </div>
@@ -267,8 +265,7 @@ const MainForm = ({
             <div className="representatives-container">
               {typeof senator === "undefined" ? (
                 <Alert variant="danger">
-                  No se han encontrado representantes con el código postal que
-                  nos ha proveído
+               No representatives found with the zip code that has us Supplied
                 </Alert>
               ) : (
                 senator

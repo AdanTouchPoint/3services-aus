@@ -89,8 +89,7 @@ const EmailForm = ({
 
       return (
         <Alert>
-          El correo no ha sido enviado con éxito, por favor intente de nuevo más
-          tarde
+          The mail has not been sent successfully, please try again late
           <Button
             className={"button-email-form"}
             variant={"dark"}
