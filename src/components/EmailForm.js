@@ -95,7 +95,7 @@ const EmailForm = ({
             variant={"dark"}
             onClick={back}
           >
-            Regresar
+            Back
           </Button>
         </Alert>
       );
