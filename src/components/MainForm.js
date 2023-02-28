@@ -3,19 +3,18 @@ import Loader from "react-loader-spinner";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/cjs/Button";
 import Alert from "react-bootstrap/Alert";
-//import axios from "axios";
 import List from "./List";
 import mainimage from "../assets/laptop-with-notebook-and-glasses-on-table.jpg";
-//import icon from '../assets/tw.png'
 import EmailForm from "./EmailForm";
 import ThankYou from "./ThankYou";
+import Terms from "./TermsAndConds";
 import Card from "react-bootstrap/cjs/Card";
 import { Link, animateScroll as scroll } from "react-scroll";
-//import {io} from "socket.io-client"
-//import mps from '../assets/mps';
-//import estates from '../assets/estates'
+
 
 const MainForm = ({
+  showTerms,
+  setShowTerms,
   dataUser,
   setDataUser,
   mp,
@@ -34,15 +33,27 @@ const MainForm = ({
   const [error, setError] = useState(false);
   const [showThankYou, setShowThankYou] = useState(true);
   const [mainData, setMainData] = useState({});
+  const [tac, setTac] = useState(false)
+  
+  const handleTerms = (e) => {
+    if (e.target.checked === true) {
+      setShowTerms(true);
+      setTac(true)
+  } else {
+    setTac(false)
+  }
+  }
 
+  useEffect( () => {
+console.log(tac)
+  },[tac]
+  )
   const handleChange = (e) => {
     e.preventDefault();
     setDataUser({
       ...dataUser,
       [e.target.name]: e.target.value,
     });
-    //console.log(e.target.value)
-    //console.log(dataUser)
   };
   const { postcode, emailUser } = dataUser;
 
@@ -58,7 +69,8 @@ const MainForm = ({
     }
     setValidated(true);
     if (
-      //firstName.trim() === '' || lastName.trim() === '' || //
+      //firstName.trim() === '' || 
+      tac  === false || 
       postcode.trim() === "" ||
       emailUser.trim() === ""
     ) {
@@ -82,7 +94,7 @@ const MainForm = ({
           response.json()
         ) : (
           <Alert variant="danger">
-           No representatives found with the zip code that has us Supplied
+            No representatives found with the zip code that has us Supplied
           </Alert>
         )
       )
@@ -204,6 +216,16 @@ const MainForm = ({
                 maxLength="5"
               />
             </Form.Group>
+              <Form.Group style={{textAlign: "justify"}} controlId="conditions">
+                <Form.Check
+                  name="conditions"
+                  onClick={handleTerms}
+                  required
+                  label={
+                    <p > Accept Terms and conditions</p>
+                  }
+                />
+              </Form.Group>
             <Form.Group>
               <Button
                 type={"submit"}
@@ -257,7 +279,8 @@ const MainForm = ({
                 ))
               ) : (
                 <Alert variant="danger">
-              No representatives found with the zip code that has us Supplied
+                  No representatives found with the zip code that has us
+                  Supplied
                 </Alert>
               )}
             </div>
@@ -265,7 +288,8 @@ const MainForm = ({
             <div className="representatives-container">
               {typeof senator === "undefined" ? (
                 <Alert variant="danger">
-               No representatives found with the zip code that has us Supplied
+                  No representatives found with the zip code that has us
+                  Supplied
                 </Alert>
               ) : (
                 senator
@@ -307,6 +331,12 @@ const MainForm = ({
         setShowThankYou={setShowThankYou}
         clientId={clientId}
         showThankYou={showThankYou}
+      />
+      <Terms
+      tac={tac}
+      setTac={setTac}
+      showTerms={showTerms}
+      setShowTerms={setShowTerms}
       />
     </div>
   );
