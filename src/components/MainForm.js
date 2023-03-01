@@ -214,7 +214,7 @@ const MainForm = ({
                   onClick={handleTerms}
                   required
                   label={
-                    <a href="https://www.overton.solutions/terms-conditions"> Accept Terms and conditions</a>
+                    <a target={"_blank"} rel={"noreferrer"} href="https://www.overton.solutions/terms-conditions"> Accept Terms and conditions</a>
                   }
                 />
               </Form.Group>
