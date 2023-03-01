@@ -2,7 +2,6 @@ import React,{useState, useEffect} from 'react'
 import MainForm from "./components/MainForm";
 //require('dotenv').config()
 function App() {
-  const [showTerms, setShowTerms] = useState(false);
     const [emailData, setEmailData] = useState({
         userName: ''
     })
@@ -74,8 +73,6 @@ function App() {
 
     return(
         <MainForm
-            showTerms={showTerms}
-            setShowTerms={setShowTerms}
             setEmailData={setEmailData}
             emailData={emailData}
             dataUser={dataUser}

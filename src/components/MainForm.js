@@ -13,8 +13,6 @@ import { Link, animateScroll as scroll } from "react-scroll";
 
 
 const MainForm = ({
-  showTerms,
-  setShowTerms,
   dataUser,
   setDataUser,
   mp,
@@ -37,17 +35,11 @@ const MainForm = ({
   
   const handleTerms = (e) => {
     if (e.target.checked === true) {
-      setShowTerms(true);
       setTac(true)
   } else {
     setTac(false)
   }
   }
-
-  useEffect( () => {
-console.log(tac)
-  },[tac]
-  )
   const handleChange = (e) => {
     e.preventDefault();
     setDataUser({
@@ -222,7 +214,7 @@ console.log(tac)
                   onClick={handleTerms}
                   required
                   label={
-                    <p > Accept Terms and conditions</p>
+                    <a href="https://www.overton.solutions/terms-conditions"> Accept Terms and conditions</a>
                   }
                 />
               </Form.Group>
@@ -331,12 +323,6 @@ console.log(tac)
         setShowThankYou={setShowThankYou}
         clientId={clientId}
         showThankYou={showThankYou}
-      />
-      <Terms
-      tac={tac}
-      setTac={setTac}
-      showTerms={showTerms}
-      setShowTerms={setShowTerms}
       />
     </div>
   );
