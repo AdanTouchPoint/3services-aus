@@ -51,8 +51,7 @@ const MainForm = ({
 
   const click = async (e) => {
     e.preventDefault();
-    // load spin
-    setShowLoadSpin(true);
+
     //validation form -->
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
@@ -69,7 +68,8 @@ const MainForm = ({
       setError(true);
       return;
     }
-
+    // load spin
+    setShowLoadSpin(true);
     setError(false);
     //---> ends validation form
 
@@ -214,7 +214,9 @@ const MainForm = ({
                   onClick={handleTerms}
                   required
                   label={
-                    <a target={"_blank"} rel={"noreferrer"} href="https://www.overton.solutions/terms-conditions"> Accept Terms and conditions</a>
+                    <a target={"_blank"} rel={"noreferrer"} href={mainData.data?.docs[0]
+                      ? mainData.data?.docs[0].terms
+                      : "Please enter a url on your dashboard"}> Accept Terms and conditions</a>
                   }
                 />
               </Form.Group>
