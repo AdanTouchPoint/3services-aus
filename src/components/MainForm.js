@@ -192,7 +192,7 @@ const MainForm = ({
             <Form.Group>
               <Form.Control
                 type="email"
-                placeholder="Enter email"
+                placeholder="Your Email"
                 name="emailUser"
                 onChange={handleChange}
                 required
@@ -201,7 +201,7 @@ const MainForm = ({
             <Form.Group>
               <Form.Control
                 type="text"
-                placeholder="Type your zipCode and press ENTER"
+                placeholder="Your Postcode"
                 name="postcode"
                 onChange={handleChange}
                 required
